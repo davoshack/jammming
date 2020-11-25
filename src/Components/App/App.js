@@ -13,7 +13,17 @@ class App extends React.Component {
       playlistName: 'New Playlist',
       playlistTracks: []
     };
+    this.addTrack = this.addTrack.bind(this);
   
+  }
+  addTrack(track) {
+    let tracks = this.state.playlistTracks;
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    }
+
+    tracks.push(track);
+    this.setState({playlistTracks: tracks}); 
   }
   render() {
     return (
@@ -22,8 +32,9 @@ class App extends React.Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults}/>
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
+            <SearchResults searchResults={this.state.searchResults}
+                           onAdd={this.addTrack} />
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
       </div>
