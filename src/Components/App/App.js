@@ -7,11 +7,11 @@ import Playlist from '../Playlist/Playlist';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchResults: [
-      {'id': '1', 'name': 'Tiny Dancer', 'artist': 'Elton John', 'album': 'Madman Across The Water'},
-      {'id': '2', 'name': 'Tiny Dancer', 'artist': 'Elton John', 'album': 'Madman Across The Water'},
-      {'id': '3', 'name': 'Tiny Dancer', 'artist': 'Elton John', 'album': 'Madman Across The Water'}
-    ]};
+    this.state = { 
+      searchResults: [],
+      playlistName: 'New Playlist',
+      playlistTracks: []
+    };
   
   }
   render() {
