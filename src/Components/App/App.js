@@ -3,21 +3,22 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from'../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from 'util/util';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { 
-      searchResults: [{'id': 0, 'name': 'Tiny Dancer', 'artist': 'Elton John', 'album': 'Maddman Across The Water'},
-                      {'id': 0, 'name': 'Tiny Dancer', 'artist': 'Elton John', 'album': 'Maddman Across The Water'}],
+      searchResults: [],
       playlistName: 'New Playlist',
       playlistTracks: []
     };
+
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.search = this.search.bind(this);
-  
   }
 
   addTrack(track) {
